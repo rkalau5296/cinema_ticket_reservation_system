@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -17,13 +16,12 @@ public class Screening {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column
     @OneToMany(
-            targetEntity = Movie.class,
             cascade = CascadeType.ALL,
             fetch =  FetchType.LAZY
     )
-    @JoinColumn (name = "movies_id")
-    private List<Movie> movies = new ArrayList<>();
+    private List<Movie> movie;
 
     @Column
     private String date;
@@ -31,19 +29,11 @@ public class Screening {
     @Column
     private String time;
 
+    @Column
     @OneToMany(
-            targetEntity = ScreeningRoom.class,
-            cascade = CascadeType.ALL,
-            fetch =  FetchType.LAZY
-    )
-    @JoinColumn (name = "screeningRoom_id")
-    private List<ScreeningRoom> screeningRooms = new ArrayList<>();
 
-    @OneToMany(
-            targetEntity = Seat.class,
             cascade = CascadeType.ALL,
             fetch =  FetchType.LAZY
     )
-    @JoinColumn (name = "seats_id")
-    private List<Seat> availability = new ArrayList<>();
+    private List<Room> screeningRoom;
 }

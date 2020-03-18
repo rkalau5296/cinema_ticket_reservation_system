@@ -15,8 +15,14 @@ public class ScreeningController {
     @Autowired
     private ScreeningFacade screeningFacade;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/screening/{date}/{time}")
-    public List<Screening> getAvailableMoviesByDateAndTime (@PathVariable String date, @PathVariable String time) {
-        return screeningFacade.getMoviesByDateAndTime(date, time);
+    @RequestMapping(method = RequestMethod.GET, value = "/screening/{dateFrom}/{dateTo}")
+    public List<Screening> getAvailableMoviesInInterval (@PathVariable String dateFrom, @PathVariable String dateTo) {
+        return screeningFacade.getMoviesInInterval(dateFrom, dateTo);
     }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/screening")
+    public List<Screening> getProductsFromDb() {
+        return screeningFacade.getAllScreeningsFromDb();
+    }
+
 }

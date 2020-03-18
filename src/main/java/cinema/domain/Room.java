@@ -10,7 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Entity(name = "rooms")
-public class ScreeningRoom {
+public class Room {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,4 +18,7 @@ public class ScreeningRoom {
 
     @Column
     private String room;
+
+    @Column
+    private int seatAmount;
 }

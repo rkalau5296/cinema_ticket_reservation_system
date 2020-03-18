@@ -13,8 +13,11 @@ public class ScreeningFacade {
     @Autowired
     private ScreeningService screeningService;
 
-    public List<Screening> getMoviesByDateAndTime(String date, String time) {
-        return screeningService.getScreeningByDateAndTime(date, time);
+    public List<Screening> getAllScreeningsFromDb(){
+        return screeningService.getAllScreeningsFromDb();
     }
 
+    public List<Screening> getMoviesInInterval(String dateFrom, String dateTo) {
+        return screeningService.getMoviesInInterval(dateFrom, dateTo);
+    }
 }
