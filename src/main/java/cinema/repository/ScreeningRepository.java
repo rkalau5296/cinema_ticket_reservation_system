@@ -11,4 +11,6 @@ public interface ScreeningRepository extends CrudRepository<Screening, Long> {
     List<Screening> findAll();
 
     List<Screening> findAllByDateBetween(String dateFrom, String dateTo);
+
+    List<Screening> findByDateBetweenAndAndTime(String dateFrom, String dateTo, String time);
 }

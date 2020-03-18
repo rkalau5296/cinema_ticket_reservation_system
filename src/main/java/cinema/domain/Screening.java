@@ -16,12 +16,13 @@ public class Screening {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column
-    @OneToMany(
+
+    @OneToOne(
             cascade = CascadeType.ALL,
-            fetch =  FetchType.LAZY
+            fetch =  FetchType.EAGER
     )
-    private List<Movie> movie;
+    @JoinColumn(name = "Movie")
+    private Movie movie;
 
     @Column
     private String date;
@@ -29,11 +30,12 @@ public class Screening {
     @Column
     private String time;
 
-    @Column
-    @OneToMany(
+
+    @OneToOne(
 
             cascade = CascadeType.ALL,
-            fetch =  FetchType.LAZY
+            fetch =  FetchType.EAGER
     )
-    private List<Room> screeningRoom;
+    @JoinColumn (name = "ROOM")
+    private Room screeningRoom;
 }

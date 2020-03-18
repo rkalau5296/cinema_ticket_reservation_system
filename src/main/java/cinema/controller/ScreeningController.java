@@ -19,7 +19,10 @@ public class ScreeningController {
     public List<Screening> getAvailableMoviesInInterval (@PathVariable String dateFrom, @PathVariable String dateTo) {
         return screeningFacade.getMoviesInInterval(dateFrom, dateTo);
     }
-
+    @RequestMapping(method = RequestMethod.GET, value = "/screening/{dateFrom}/{dateTo}/{time}")
+    public List<Screening> getAvailableMoviesByDayAndTime (@PathVariable String dateFrom, @PathVariable String dateTo, @PathVariable String time) {
+        return screeningFacade.getMoviesByDayAndTime(dateFrom, dateTo, time);
+    }
     @RequestMapping(method = RequestMethod.GET, value = "/screening")
     public List<Screening> getProductsFromDb() {
         return screeningFacade.getAllScreeningsFromDb();

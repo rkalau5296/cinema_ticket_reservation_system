@@ -20,5 +20,8 @@ public class ScreeningService {
     public List<Screening> getMoviesInInterval(String dateFrom, String dateTo) {
         return screeningRepository.findAllByDateBetween(dateFrom, dateTo);
     }
+    public List<Screening> getMoviesByDayAndTime(String dateFrom, String dateTo, String time) {
+        return screeningRepository.findByDateBetweenAndAndTime(dateFrom,dateTo,time);
+    }
 
 }
