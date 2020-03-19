@@ -1,35 +1,89 @@
 package cinema.domain;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 @Entity(name = "ticket")
 public class Ticket {
+
+    private Long id;
+    private String name;
+    private String surname;
+    private int adults;
+    private int students;
+    private int children;
+    private double totalPrice;
+    private String reservationExpirationTime;
+
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
     @Column
-    private String name;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     @Column
-    private String surname;
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
     @Column
-    private int adults;
+    public int getAdults() {
+        return adults;
+    }
+
+    public void setAdults(int adults) {
+        this.adults = adults;
+    }
     @Column
-    private int students;
+    public int getStudents() {
+        return students;
+    }
+
+    public void setStudents(int students) {
+        this.students = students;
+    }
     @Column
-    private int children;
+    public int getChildren() {
+        return children;
+    }
+
+    public void setChildren(int children) {
+        this.children = children;
+    }
     @Column
-    private int totalAmountOfSeats;
+    public double getTotalPrice() {
+        return totalPrice = adults * 25.00 + students * 18.00 + children * 12.50;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
     @Column
-    private double totalPrice;
-    @Column
-    private String reservationExpirationTime;
+    public String getReservationExpirationTime() {
+        return reservationExpirationTime;
+    }
+
+    public void setReservationExpirationTime(String reservationExpirationTime) {
+        this.reservationExpirationTime = reservationExpirationTime;
+    }
 }

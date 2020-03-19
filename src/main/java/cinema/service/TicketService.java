@@ -5,7 +5,6 @@ import cinema.repository.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import static java.util.Optional.ofNullable;
 
 @Service
 public class TicketService {
