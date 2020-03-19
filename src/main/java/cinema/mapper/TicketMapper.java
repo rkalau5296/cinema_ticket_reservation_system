@@ -15,7 +15,9 @@ public class TicketMapper {
                 ticketDto.getStudents(),
                 ticketDto.getChildren(),
                 ticketDto.getTotalPrice(),
-                ticketDto.getReservationExpirationTime()
+                ticketDto.getReservationExpirationTime(),
+                ticketDto.getTotalPeopleAmount(),
+                ticketDto.getScreening_id()
         );
     }
 }

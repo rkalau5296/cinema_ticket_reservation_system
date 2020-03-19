@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,11 +15,7 @@ public class Screening {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-
-    @OneToOne(
-            cascade = CascadeType.ALL,
-            fetch =  FetchType.EAGER
-    )
+    @OneToOne(cascade = CascadeType.ALL, fetch =  FetchType.EAGER)
     @JoinColumn(name = "Movie")
     private Movie movie;
 
@@ -30,12 +25,7 @@ public class Screening {
     @Column
     private String time;
 
-
-    @OneToOne(
-
-            cascade = CascadeType.ALL,
-            fetch =  FetchType.EAGER
-    )
+    @OneToOne(cascade = CascadeType.ALL, fetch =  FetchType.EAGER)
     @JoinColumn (name = "ROOM")
     private Room screeningRoom;
 }

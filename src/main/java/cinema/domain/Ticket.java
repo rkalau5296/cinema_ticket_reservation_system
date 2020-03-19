@@ -17,8 +17,26 @@ public class Ticket {
     private int children;
     private double totalPrice;
     private String reservationExpirationTime;
+    private int totalPeopleAmount;
+    private int screening_id;
 
+    @Column
+    public int getScreening_id() {
+        return screening_id;
+    }
 
+    public void setScreening_id(int screening_id) {
+        this.screening_id = screening_id;
+    }
+
+    @Column
+    public int getTotalPeopleAmount() {
+        return totalPeopleAmount = adults + students + children;
+    }
+
+    public void setTotalPeopleAmount(int totalPeopleAmount) {
+        this.totalPeopleAmount = totalPeopleAmount;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -80,7 +98,7 @@ public class Ticket {
 
     @Column
     public String getReservationExpirationTime() {
-        return reservationExpirationTime;
+        return "The time for booking is 15 minutes before the movie screening.";
     }
 
     public void setReservationExpirationTime(String reservationExpirationTime) {

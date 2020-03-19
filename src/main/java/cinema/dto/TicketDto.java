@@ -1,5 +1,6 @@
 package cinema.dto;
 
+import cinema.domain.Screening;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,19 +20,7 @@ public class TicketDto {
     private int children;
     private double totalPrice;
     private String reservationExpirationTime;
+    private int totalPeopleAmount;
+    private int screening_id ;
 
-
-    public void setAdults(int newAdults) {this. adults = newAdults;};
-    public void setStudent(int newStudents) {this. students = newStudents;};
-    public void setChildren(int newChildren) {this. children = newChildren;};
-
-    private double calculateTotalPrice() {
-        System.out.println("here I am");
-        return (adults * 25.00) + (students * 18.00) + (children * 12.50);
-    }
-
-    //Setter totalPrice
-    public void setTotalPrice() {
-        this.totalPrice = calculateTotalPrice();
-    }
 }
